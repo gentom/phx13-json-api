@@ -39,4 +39,18 @@ defmodule Api13Web.UserController do
       send_resp(conn, :no_content, "")
     end
   end
+
+  def sign_in(conn, %{"email" => email, "password" => password}) do
+    case Api13.Auth.authenticate_user(email, password) do
+      {:ok, user} ->
+        conn
+        |> put_status(:ok)
+        |> render(Api13Web.UserView, "sign_in.json", user: user)
+
+      {:error, message} ->
+        conn
+        |> put_status(:unauthorized)
+        |> render(Api13Web.ErrorView, "401.json", message: message)
+    end
+  end
 end
