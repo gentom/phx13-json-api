@@ -34,7 +34,8 @@ defmodule Api13Web.UserControllerTest do
         "id" => id,
         "email" => "some email",
         "is_active" => true,
-        "password" => "some password"}
+        #"password" => "some password"
+      }
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
@@ -55,7 +56,8 @@ defmodule Api13Web.UserControllerTest do
         "id" => id,
         "email" => "some updated email",
         "is_active" => false,
-        "password" => "some updated password"}
+        #"password" => "some updated password"
+      }
     end
 
     test "renders errors when data is invalid", %{conn: conn, user: user} do
