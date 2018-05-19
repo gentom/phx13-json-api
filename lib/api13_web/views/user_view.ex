@@ -13,7 +13,7 @@ defmodule Api13Web.UserView do
   def render("user.json", %{user: user}) do
     %{id: user.id,
       email: user.email,
-      password: user.password,
+      #password: user.password,
       is_active: user.is_active}
   end
 end
